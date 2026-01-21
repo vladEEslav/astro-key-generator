@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>AstroKey Generator</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #0b0e1a;
+            color: #fff;
+            text-align: center;
+            padding-top: 60px;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .key {
+            margin-top: 20px;
+            word-break: break-all;
+            color: #00ffcc;
+        }
+        .error {
+            color: #ff5555;
+        }
+    </style>
+</head>
+<body>
+
+<h1>AstroKey Generator</h1>
+<p>Генерация криптографического ключа на основе координат небесных тел</p>
+
+<form method="post">
+    <select name="planet">
+        <option value="Sun">Sun</option>
+        <option value="Moon">Moon</option>
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus</option>
+        <option value="Mars">Mars</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturn">Saturn</option>
+    </select>
+    <br><br>
+    <button type="submit">Сгенерировать ключ</button>
+</form>
+
+{% if key %}
+    <h3>Сгенерированный ключ:</h3>
+    <p style="word-break: break-all;">{{ key }}</p>
+{% endif %}
+
+{% if message %}
+    <p style="color: lightgreen; font-weight: bold;">
+        {{ message }}
+    </p>
+{% endif %}
+
+{% if error %}
+    <p style="color: red;">
+        Ошибка: {{ error }}
+    </p>
+{% endif %}
+
+
+</body>
+</html>
